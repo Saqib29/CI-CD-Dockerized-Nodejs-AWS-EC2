@@ -1,5 +1,5 @@
 {
-  "name": "demo-test-project",
+  "name": "github-actions-for-ci-cd-deploying-dockerized-nodejs-app-to-aws-ec2",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
@@ -7,7 +7,7 @@
   "scripts": {
     "start:local": "node --env-file .env src/server.js",
     "dev:local": "nodemon --env-file .env src/server.js",
-    "start": "node --env-file .env.prod src/server.js",
+    "start:": "node --env-file .env.prod src/server.js",
     "dev": "nodemon --env-file .env.dev src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
