@@ -7,7 +7,7 @@ import swaggerUi from "swagger-ui-express";
 import swaggerJsdoc from "swagger-jsdoc";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Swagger Configuration
 const swaggerOptions = {
@@ -18,11 +18,7 @@ const swaggerOptions = {
       version: "1.0.0",
       description: "A basic Node.js server with REST and GraphQL APIs",
     },
-    servers: [
-      {
-        url: `http://localhost:${port}`,
-      },
-    ],
+    servers: [{ url: `http://localhost:${port}` }],
   },
   apis: ["./server.js"], // Path to the API docs
 };
@@ -35,6 +31,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // REST API
+/**
+ * @swagger
+ * /api/hello:
+ *   get:
+ *     summary: Returns a hello message
+ *     description: A simple REST endpoint that returns a JSON greeting.
+ *     responses:
+ *       200:
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Hello from REST API
+ */
 app.get("/api/hello", (req, res) => {
   res.json({ message: "Hello from REST API" });
 });
