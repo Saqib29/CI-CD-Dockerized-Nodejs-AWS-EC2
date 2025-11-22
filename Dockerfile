@@ -8,7 +8,7 @@ COPY . .
 ARG PORT=3000
 ENV PORT=$PORT
 EXPOSE $PORT
-CMD [ "npm", "run", "dev:docker-run" ]
+CMD [ "npm", "run", "dev" ]
 
 FROM base as production
 RUN npm ci --omit=dev
@@ -16,4 +16,4 @@ COPY . .
 ARG PORT=3000
 ENV PORT=$PORT
 EXPOSE $PORT
-CMD [ "npm", "run", "start:docker-run" ]
+CMD [ "npm", "run", "start" ]
