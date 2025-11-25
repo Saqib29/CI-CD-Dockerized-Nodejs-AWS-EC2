@@ -104,6 +104,9 @@ build/
 # Webpack build output
 dist/
 
+# TypeScript cache
+*.tsbuildinfo
+
 # Storybook build output
 storybook-static/
 

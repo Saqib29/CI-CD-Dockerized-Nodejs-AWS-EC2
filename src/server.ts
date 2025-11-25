@@ -10,7 +10,7 @@ import { resolvers } from "./graphql/resolvers.js";
 import restRoutes from "./routes/rest.js";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port: number = Number(process.env.PORT) || 3000;
 
 // Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -34,11 +34,11 @@ await server.start();
 
 app.use(
   "/graphql",
-  (req, res, next) => {
+  (req, _res, next) => {
     if (!req.body) req.body = {};
     next();
   },
-  expressMiddleware(server)
+  expressMiddleware(server) as any
 );
 
 app.listen(port, () => {
