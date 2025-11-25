@@ -3,4 +3,4 @@ export const typeDefs: string = `#graphql
     hello: String
     healthCheck: String
   }
-`;
+`
