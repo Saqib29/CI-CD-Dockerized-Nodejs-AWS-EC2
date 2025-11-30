@@ -13,7 +13,6 @@ module.exports = {
       },
     ],
   },
-  resolver: 'ts-jest-resolver',
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
