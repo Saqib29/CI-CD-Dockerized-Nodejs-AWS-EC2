@@ -1,0 +1,31 @@
+name: Master Merge Deployment
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  check-code-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run linting
+        run: docker compose run -p 8181:8181 dev npm run lint
+
+  check-code-format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run format check
+        run: docker compose run -p 8181:8181 dev npm run prettier:check
+
+  run-test-cases:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run tests
+        run: docker compose run -p 8181:8181 dev npm run test
