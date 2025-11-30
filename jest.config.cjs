@@ -9,9 +9,11 @@ module.exports = {
       {
         useESM: true,
         tsconfig: 'tsconfig.json',
+        diagnostics: { ignoreCodes: [151002] },
       },
     ],
   },
+  resolver: 'ts-jest-resolver',
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
