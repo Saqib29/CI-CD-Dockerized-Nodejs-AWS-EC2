@@ -1,66 +1,36 @@
 {
-  "name": "github-actions-for-ci-cd-deploying-dockerized-nodejs-app-to-aws-ec2",
+  "name": "ci",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start:local": "node --env-file .env dist/server.js",
-    "dev:local": "tsx watch --env-file .env src/server.ts",
-    "start": "node --env-file .env.prod dist/server.js",
-    "dev": "tsx watch --env-file .env.dev src/server.ts",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "prettier:check": "prettier --check .",
-    "format": "prettier --write .",
-    "typecheck": "tsc --noEmit",
-    "lint-staged": "lint-staged",
-    "prepare": "husky"
+    "start": "node app",
+    "dev": "nodemon app.js",
+    "test": "jest",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format:check": "prettier --check .",
+    "format:fix": "npx prettier --write ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "@apollo/server": "^4.12.2",
-    "body-parser": "^2.2.0",
-    "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "graphql": "^16.12.0",
-    "swagger-ui-express": "^5.0.1",
-    "yaml": "^2.8.1"
+    "bcrypt": "^5.1.1",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.19.1",
-    "@types/swagger-ui-express": "^4.1.6",
-    "@types/supertest": "^2.0.16",
-    "@types/jest": "^29.5.12",
-    "@typescript-eslint/eslint-plugin": "^8.13.0",
-    "@typescript-eslint/parser": "^8.13.0",
-    "eslint": "^8.57.0",
+    "@babel/preset-env": "^7.26.0",
+    "@eslint/js": "^9.14.0",
+    "babel-jest": "^29.7.0",
+    "eslint": "^9.14.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.10",
-    "nodemon": "^3.1.11",
-    "prettier": "^3.4.1",
-    "supertest": "^7.0.0",
-    "ts-node-dev": "^2.0.0",
+    "globals": "^15.11.0",
     "jest": "^29.7.0",
-    "ts-jest": "^29.2.5",
-    "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
-  },
-  "lint-staged": {
-    "**/*.{ts,tsx}": [
-      "eslint --fix"
-    ],
-    "**/*.{js,jsx,json,md,yml,yaml}": [
-      "prettier --write"
-    ]
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3"
   }
 }

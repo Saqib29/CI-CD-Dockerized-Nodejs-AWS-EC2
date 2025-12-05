@@ -1,109 +1,65 @@
-# Node.js Server with REST and GraphQL
+# Node.js API for CI/CD with Github Action
 
-This is a basic Node.js server application that demonstrates how to implement both REST and GraphQL APIs using Express and Apollo Server. It also includes Swagger documentation and Docker support for development and production environments.
-
-## Features
-
-- **REST API**: A simple Hello World endpoint.
-- **GraphQL API**: A Hello World query and Health Check.
-- **Swagger UI**: Interactive API documentation for REST endpoints.
-- **Apollo Sandbox**: Interactive GraphQL IDE.
-- **Docker Support**: Dockerfile and Docker Compose configurations for Dev and Prod.
-- **Environment Configuration**: Separate `.env` files for different environments.
+This repository contains the code for a Node.js API. The setup includes a CI/CD pipeline configured with GitHub Actions for linting, formatting, running tests, and deploying the app to AWS EC2 on merge to `master` branch.
 
 ## Prerequisites
 
-- Node.js (v20 or higher recommended)
-- npm (or pnpm/yarn)
-- Docker & Docker Compose (optional, for containerization)
+Before running the project locally, make sure you have the following tools installed:
 
-## Installation
+- [Node.js](https://nodejs.org/) (preferably the latest LTS version)
+- [npm](https://www.npmjs.com/)
 
-1.  Clone the repository:
+## Setup
 
-    ```bash
-    git clone git@github.com:Saqib29/CI-CD-Dockerized-Nodejs-AWS-EC2.git
-    cd CI-CD-Dockerized-Nodejs-AWS-EC2
-    ```
-
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-
-## Running Locally
-
-### Development
-
-Runs the server with `nodemon` for hot-reloading. Uses `.env` (or defaults).
+Clone this repository to your local machine:
 
 ```bash
-npm run dev:local
+git clone git@github.com:tazbin/ci-cd-pipeline.git
+cd ci-cd-pipeline
 ```
 
-- Server: `http://localhost:3000` (or configured PORT)
-- Swagger UI: `http://localhost:3000/api-docs`
-- GraphQL Playground: `http://localhost:3000/graphql`
-
-### Production
-
-Runs the server in production mode. Uses `.env` (or defaults).
+Install the dependencies
 
 ```bash
-npm run start:local
+npm install
 ```
 
-## Running with Docker
-
-### Development
-
-Builds and runs the container using the `development` target and `.env.dev` variables.
+Run the app
 
 ```bash
-docker compose --env-file .env.dev up --build dev
+npm run start
 ```
 
-- The app will be available at the port defined in `.env.dev` (default `3000` in the provided file).
-- Example: `http://localhost:3000/api/hello`
+### Code Linting
 
-### Production
-
-Builds and runs the container using the `production` target and `.env.prod` variables.
+Check code linting
 
 ```bash
-docker compose --env-file .env.prod up --build prod
+npm run lint:check
 ```
 
-## API Documentation
+Fix code linting
 
-### REST API
-
-- **Endpoint**: `GET /api/hello`
-- **Response**: `{"message": "Hello from REST API"}`
-- **Documentation**: Visit `/api-docs` for the Swagger UI.
-
-### GraphQL API
-
-- **Endpoint**: `POST /graphql`
-- **Playground**: Visit `/graphql` in your browser to use the Apollo Sandbox.
-- **Schema**:
-  ```graphql
-  type Query {
-    hello: String
-    healthCheck: String
-  }
-  ```
-
-## Project Structure
-
+```bash
+npm run lint:fix
 ```
-src/
-├── config/         # Configuration files (e.g., Swagger)
-├── graphql/        # GraphQL schema and resolvers
-├── routes/         # REST API routes
-└── server.js       # Main application entry point
-Dockerfile          # Multi-stage Docker build instructions
-docker-compose.yml  # Docker Compose services configuration
-.env.dev            # Development environment variables
-.env.prod           # Production environment variables
+
+### Code Formatting
+
+Check code Format
+
+```bash
+npm run format:check
+```
+
+Fix code Formatting
+
+```bash
+npm run format:fix
+```
+
+## Run Test Cases
+
+```bash
+npm run test
 ```

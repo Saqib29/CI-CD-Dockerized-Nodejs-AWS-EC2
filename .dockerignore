@@ -1,43 +1,7 @@
-# Dependencies
 node_modules
-
-# Builds
-/dist
-/build
-/.next
-/.nuxt
-/out
-coverage
-
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Env files
-.env
-.env.*
-!.env.example
-
-# IDE/editor
-.vscode
-.idea
-*.swp
-.DS_Store
-
-# Git
+npm-debug.log
+Dockerfile
+.dockerignore
 .git
 .gitignore
-.gitattributes
-
-# Cache
-.cache
-.eslintcache
-
-# Misc
-.tmp
-tmp
-.husky
+README.md
