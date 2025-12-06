@@ -14,7 +14,7 @@ jobs:
       - name: Run linting
         run: docker compose run dev npm run lint:check
       - name: Check secretes
-        run: echo {{ secrets.MY_SECRET }}
+        run: echo ${{ secrets.MY_SECRET }}
 
   check-code-format:
     runs-on: ubuntu-latest
